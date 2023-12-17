@@ -1,0 +1,11 @@
+.command-line-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  justify-content: left;
+  gap: 1rem;
+
+  .fish-icon {
+    color: #368ccd;
+  }
+}

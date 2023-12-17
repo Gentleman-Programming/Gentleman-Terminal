@@ -1,0 +1,11 @@
+<app-commandline>
+  <input
+    autofocus
+    type="text"
+    id="user-input"
+    class="user-input"
+    name="user-input"
+    [formControl]="userInput"
+    (keyup.enter)="sendCommand()"
+  />
+</app-commandline>

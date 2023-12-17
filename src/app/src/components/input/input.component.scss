@@ -1,0 +1,14 @@
+.user-input {
+  color: white;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  width: 80%;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
