@@ -72,20 +72,19 @@ Thank you for taking the time to visit my profile. I am always looking for new o
           break;
         }
         case AvailableInformation.SN: {
-          result = `YouTube channel:   😊 GentlemanProgramming - https://www.youtube.com/@GentlemanProgramming
-Twitch channel:    🎮 Gentleman_Programming - https://www.twitch.tv/gentleman_programming/
-Instagram:         📸 GentlemanProgramming - https://www.instagram.com/gentlemanprogramming/
-Tiktok:            🕺 GentlemanProgramming - https://www.tiktok.com/@gentlemanprogramming
-Discord:           💬 Gentleman Programming - https://discord.gg/gentleman-programming-769863833996754944
+          result = `YouTube channel:   😊 GentlemanProgramming - <a href="https://www.youtube.com/@GentlemanProgramming" target="_blank">https://www.youtube.com/@GentlemanProgramming</a>
+Twitch channel:    🎮 Gentleman_Programming - <a href="https://www.twitch.tv/gentleman_programming/" target="_blank">https://www.twitch.tv/gentleman_programming/</a>
+Instagram:         📸 GentlemanProgramming - <a href="https://www.instagram.com/gentlemanprogramming/" target="_blank">https://www.instagram.com/gentlemanprogramming/</a>
+Tiktok:            🕺 GentlemanProgramming - <a href="https://www.tiktok.com/@gentlemanprogramming" target="_blank">https://www.tiktok.com/@gentlemanprogramming</a>
+Discord:           💬 Gentleman Programming - <a href="https://discord.gg/gentleman-programming-769863833996754944" target="_blank">https://discord.gg/gentleman-programming-769863833996754944</a>
 `;
           break;
         }
         case AvailableInformation.WTS: {
-          result = `Angular 17:                     🅰️ https://angular.dev/
-SCSS:                           🎨 https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing
-Signals:                        🚦 https://angular.dev/guide/signals
-Gentleman Signals State Manager: 📡 https://www.npmjs.com/package/gentleman-signals-state-manager
-`;
+          result = `Angular 17:                     🅰️ <a href="https://angular.dev/" target="_blank">https://angular.dev/</a>h
+SCSS:                           🎨 <a href="https://develpoer.modizlla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing" target="_blank"> https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing</a>
+Signals:                        🚦 <a href="https://angular.dev/guide/signals" target="_blank">https://angular.dev/guide/signals</a>
+Gentleman Signals State Manager: 📡 <a href="https://www.npmjs.com/package/gentleman-signals-state-manager" target="_blank">https://www.npmjs.com/package/gentleman-signals-state-manager</a>`;
           break;
         }
         default:
