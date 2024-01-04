@@ -80,12 +80,7 @@ const CommandActions = {
   [Commands.SUDO]: (payload: string) => CommandSUDOActions(payload),
 };
 
-type UsefulCommands = keyof typeof CommandActions;
-
-export const CommandMapper = (
-  command: UsefulCommands | string,
-  payload?: string,
-) => {
+export const CommandMapper = (command: string, payload?: string) => {
   if (!(command in CommandActions)) {
     return 'Command Not Recognized';
   }
