@@ -82,10 +82,6 @@ const CommandActions = {
 };
 
 export const CommandMapper = (command: string, payload?: string) => {
-  if (!(command in CommandActions)) {
-    return 'Command Not Recognized';
-  }
-
   if (command === Commands.SUDO && payload) {
     return CommandActions[command](payload);
   }
