@@ -8,6 +8,7 @@ export const getCommandFromString = (text: string) => {
     text: splittedText.slice(1).join(),
   };
 };
+
 const CommandSudoAvailableInfo = {
   [AvailableInformation.WIG]: `  ██████╗ ███████╗███╗   ██╗████████╗██╗     ███████╗███╗   ███╗ █████╗ ███╗   ██╗
   ██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝██║     ██╔════╝████╗ ████║██╔══██╗████╗  ██║
