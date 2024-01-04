@@ -3,6 +3,7 @@ import { AvailableInformation, Commands } from '../models/command-line.model';
 export const getCommandFromString = (text: string) => {
   const splittedText = text.split(' ');
   const command = text.split(' ')[0];
+
   return {
     command,
     text: splittedText.slice(1).join(),
