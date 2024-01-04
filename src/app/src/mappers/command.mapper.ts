@@ -65,6 +65,7 @@ Gentleman Signals State Manager: 📡 <a href="https://www.npmjs.com/package/gen
 
 const CommandSUDOActions = (payload: string) => {
   if (!(payload in CommandSudoAvailableInfo)) return `Command Not Recognized`;
+
   return CommandSudoAvailableInfo[payload as AvailableInformation];
 };
 
