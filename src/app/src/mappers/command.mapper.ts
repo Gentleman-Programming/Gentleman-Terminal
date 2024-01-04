@@ -81,13 +81,17 @@ const CommandActions = {
   [Commands.SUDO]: (payload: string) => CommandSUDOActions(payload),
 };
 
+type CommandsWithoutPayload = Commands.HELP | Commands.LIST;
+
 export const CommandMapper = (command: string, payload?: string) => {
+  const commandWithoutPayload = [Commands.HELP, Commands.LIST];
+
   if (command === Commands.SUDO && payload) {
     return CommandActions[command](payload);
   }
 
-  if (command === Commands.HELP || command === Commands.LIST) {
-    return CommandActions[command]();
+  if (commandWithoutPayload.find((cwp) => cwp === command)) {
+    return CommandActions[command as CommandsWithoutPayload]();
   }
 
   return 'Command Not Recognized';
