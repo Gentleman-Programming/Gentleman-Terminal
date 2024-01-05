@@ -1,8 +1,25 @@
 import { AvailableInformation, Commands } from '../models/command-line.model';
 
+/**
+ * NOTE:
+ * Update this type when adding new commands
+ * that should be treated as without payload.
+ */
+type CommandsWithoutPayload = Commands.HELP | Commands.LIST;
+
+type CommandActionFunctions = {
+  [K in Exclude<Commands, Commands.CLEAR>]: K extends CommandsWithoutPayload
+    ? () => string
+    : (payload: string) => string;
+};
+
 export const getCommandFromString = (text: string) => {
   const splittedText = text.split(' ');
-  const command = text.split(' ')[0];
+  const commandString = splittedText[0];
+
+  const command = Object.values(Commands).includes(commandString as Commands)
+    ? (commandString as Commands)
+    : null;
 
   return {
     command,
@@ -69,7 +86,7 @@ const CommandSUDOActions = (payload: string) => {
   return CommandSudoAvailableInfo[payload as AvailableInformation];
 };
 
-const CommandActions = {
+const CommandActions: CommandActionFunctions = {
   [Commands.HELP]: () => `Command list:
 - sudo: sudo command needed to access personal information
 - list: list all possible personal information
@@ -83,17 +100,19 @@ const CommandActions = {
   [Commands.SUDO]: (payload: string) => CommandSUDOActions(payload),
 };
 
-type CommandsWithoutPayload = Commands.HELP | Commands.LIST;
+export const CommandMapper = (command: Commands, payload?: string) => {
+  const allCommands = Object.values(Commands);
 
-export const CommandMapper = (command: string, payload?: string) => {
-  const commandWithoutPayload = [Commands.HELP, Commands.LIST];
+  const commandWithoutPayload = allCommands.filter(
+    (cmd) => cmd !== Commands.SUDO && cmd !== Commands.CLEAR
+  );
+
+  if (commandWithoutPayload.includes(command)) {
+    return CommandActions[command as CommandsWithoutPayload]();
+  }
 
   if (command === Commands.SUDO && payload) {
     return CommandActions[command](payload);
-  }
-
-  if (commandWithoutPayload.find((cwp) => cwp === command)) {
-    return CommandActions[command as CommandsWithoutPayload]();
   }
 
   return 'Command Not Recognized';
