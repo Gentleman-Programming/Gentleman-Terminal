@@ -27,21 +27,26 @@ export class HistoryComponent {
 
     if (userInputSignalValue === Commands.CLEAR) {
       this.historyBackup = [];
-    } else if (userInputSignalValue) {
-      const { command, text } = getCommandFromString(this.userInput());
-
-      this.historyBackup.push({
-        id: this.historyBackup.length,
-        text: CommandMapper(command, text),
-      });
+      return this.historyBackup;
     }
+
+    if (!userInputSignalValue) {
+      return this.historyBackup;
+    }
+
+    const { command, text } = getCommandFromString(userInputSignalValue);
+
+    this.historyBackup.push({
+      id: this.historyBackup.length,
+      text: command ? CommandMapper(command, text) : 'Command Not Recognized',
+    });
 
     return this.historyBackup;
   });
 
   constructor() {
     this.userInput = this.signalsManagerService.signalsManager.getSignal(
-      AppSignalKeys.USER_INPUT,
+      AppSignalKeys.USER_INPUT
     );
   }
 }
