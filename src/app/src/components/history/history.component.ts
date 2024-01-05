@@ -46,7 +46,7 @@ export class HistoryComponent {
 
   constructor() {
     this.userInput = this.signalsManagerService.signalsManager.getSignal(
-      AppSignalKeys.USER_INPUT
+      AppSignalKeys.USER_INPUT,
     );
   }
 }
